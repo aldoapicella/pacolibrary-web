@@ -50,4 +50,4 @@
 <%@ include file="./view/footer.jsp" %>
 
 <!-- Incluir el archivo JavaScript externo -->
-<script src="./js/tabs.js"></script>
+<script src="../js/tabs.js"></script>
