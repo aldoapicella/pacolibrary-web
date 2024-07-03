@@ -6,11 +6,15 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * The DatabaseConnection class provides a utility for establishing a connection to the database.
+ */
 public class DatabaseConnection {
     private static final String URL = System.getenv("DB_URL");
     private static final String USER = System.getenv("DB_USER");
     private static final String PASSWORD = System.getenv("DB_PASSWORD");
     private static final Logger LOGGER = Logger.getLogger(DatabaseConnection.class.getName());
+
 
     public static Connection getConnection() throws SQLException {
         try {
