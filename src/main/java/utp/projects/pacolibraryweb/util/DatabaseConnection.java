@@ -19,6 +19,7 @@ public class DatabaseConnection {
     public static Connection getConnection() throws SQLException {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
+            LOGGER.log(Level.INFO, "Oracle JDBC Driver Registered!");
         } catch (ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, "Oracle JDBC Driver not found", e);
             throw new SQLException("Oracle JDBC Driver not found", e);

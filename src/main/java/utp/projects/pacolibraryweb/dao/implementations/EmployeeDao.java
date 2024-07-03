@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import utp.projects.pacolibraryweb.dao.interfaces.IEmployeeDao;
 import utp.projects.pacolibraryweb.model.EmployePosition;
@@ -17,6 +19,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  * Employee table.
  */
 public class EmployeeDao implements IEmployeeDao{
+    private static final Logger LOGGER = Logger.getLogger(EmployeeDao.class.getName());
     private static final String VALIDATE_EMPLOYEE_QUERY = "SELECT COUNT(*) FROM employees WHERE id = ? AND password = ?";
     private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employees (id, first_name, last_name, email, position) VALUES (?, ?, ?, ?, ?)";
     private static final String GET_EMPLOYEE_BY_ID_QUERY = "SELECT id, first_name, last_name, email, birth_date, position, library_code FROM employees WHERE id = ?";
@@ -38,8 +41,13 @@ public class EmployeeDao implements IEmployeeDao{
             statement.setString(2, password);
             try (ResultSet resultSet = statement.executeQuery()) {
                 resultSet.next();
-                return resultSet.getInt(1) == 1;
+                int count = resultSet.getInt(1);
+                LOGGER.log(Level.INFO, "Validation query executed. Result count: {0}", count);
+                return count == 1;
             }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error validating employee: {0}", e.getMessage());
+            throw e;
         }
     }
 
@@ -59,6 +67,10 @@ public class EmployeeDao implements IEmployeeDao{
             statement.setString(4, employee.getEmail());
             statement.setString(5, employee.getPosition().name());
             statement.executeUpdate();
+            LOGGER.log(Level.INFO, "Employee added: {0}", employee.getId());
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error adding employee: {0}", e.getMessage());
+            throw e;
         }
     }
 
@@ -85,6 +97,9 @@ public class EmployeeDao implements IEmployeeDao{
                     return new Employee(id, firstName, lastName, email, birthDate, position, libraryCode);
                 }
             }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error retrieving employee: {0}", e.getMessage());
+            throw e;
         }
         return null;
     }

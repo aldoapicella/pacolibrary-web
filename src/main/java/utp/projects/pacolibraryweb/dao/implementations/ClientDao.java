@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import utp.projects.pacolibraryweb.dao.interfaces.IClientDao;
 import utp.projects.pacolibraryweb.model.Client;
@@ -15,6 +17,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  * Client table.
  */
 public class ClientDao implements IClientDao {
+    private static final Logger LOGGER = Logger.getLogger(ClientDao.class.getName());
     private static final String VALIDATE_CLIENT_QUERY = "SELECT COUNT(*) FROM client WHERE email = ? AND password = ?";
     private static final String ADD_CLIENT_QUERY = "INSERT INTO client (first_name, last_name, email) VALUES (?, ?, ?)";
     private static final String GET_CLIENT_BY_EMAIL_QUERY = "SELECT id, first_name, last_name, email FROM client WHERE email = ?";
@@ -34,8 +37,15 @@ public class ClientDao implements IClientDao {
                 PreparedStatement statement = connection.prepareStatement(VALIDATE_CLIENT_QUERY)) {
             statement.setString(1, email);
             statement.setString(2, password);
-            ResultSet resultSet = statement.executeQuery();
-            return resultSet.next();
+            try (ResultSet resultSet = statement.executeQuery()) {
+                resultSet.next();
+                int count = resultSet.getInt(1);
+                LOGGER.log(Level.INFO, "Validation query executed. Result count: {0}", count);
+                return count == 1;
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error validating client: {0}", e.getMessage());
+            throw e;
         }
     }
 
@@ -53,6 +63,10 @@ public class ClientDao implements IClientDao {
             statement.setString(2, client.getLastName());
             statement.setString(3, client.getEmail());
             statement.executeUpdate();
+            LOGGER.log(Level.INFO, "Client added: {0}", client.getId());
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error adding client: {0}", e.getMessage());
+            throw e;
         }
     }
 
@@ -76,7 +90,10 @@ public class ClientDao implements IClientDao {
                     return new Client(id, firstName, lastName, email);
                 }
             }
-            return null;
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error retrieving client: {0}", e.getMessage());
+            throw e;
         }
+            return null;
     }
 }
