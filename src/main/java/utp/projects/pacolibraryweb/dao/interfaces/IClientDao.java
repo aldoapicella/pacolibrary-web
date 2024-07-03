@@ -26,13 +26,13 @@ public interface IClientDao {
      * @throws SQLException if an error occurs while accessing the database
      */
     void addClient(Client client) throws SQLException;
-    
+
     /**
-     * Retrieves a client from the database based on the email.
-     *
-     * @param email the email of the client to retrieve
-     * @return the client with the specified email, or null if not found
+     * Fetches a client by id.
+     * 
+     * @param id the id of the client to fetch
+     * @return the client with the specified id
      * @throws SQLException if an error occurs while accessing the database
      */
-    Client getClientByEmail(String email) throws SQLException;
+    Client getClientById(int id) throws SQLException;
 }
