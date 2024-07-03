@@ -16,7 +16,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  */
 public class ClientDao implements IClientDao {
     private static final String VALIDATE_CLIENT_QUERY = "SELECT COUNT(*) FROM client WHERE email = ? AND password = ?";
-    private static final String ADD_CLIENT_QUERY = "INSERT INTO client (first_name, middle_name, last_name, second_last_name, password, email) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String ADD_CLIENT_QUERY = "INSERT INTO client (first_name, middle_name, last_name, second_last_name, email) VALUES (?, ?, ?, ?, ?)";
 
     /**
      * Validates a client by checking if the provided email and password match a
@@ -52,8 +52,7 @@ public class ClientDao implements IClientDao {
             statement.setString(2, client.getMiddleName());
             statement.setString(3, client.getLastName());
             statement.setString(4, client.getSecondLastName());
-            statement.setString(5, client.getPassword());
-            statement.setString(6, client.getEmail());
+            statement.setString(5, client.getEmail());
             statement.executeUpdate();
         }
     }
