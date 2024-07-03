@@ -28,9 +28,9 @@ CREATE TABLE library.employee (
 );
 
 -- Insertar datos de ejemplo en la tabla client
-INSERT INTO library.client (first_name, middle_name, last_name, second_last_name, password, email)
-VALUES ('John', 'A.', 'Doe', 'Smith', 'password123', 'john.doe@example.com');
+INSERT INTO library.client (id, first_name, middle_name, last_name, second_last_name, password, email)
+VALUES (1, 'John', 'A.', 'Doe', 'Smith', 'password123', 'john.doe@example.com');
 
 -- Insertar datos de ejemplo en la tabla employee
-INSERT INTO library.employee (first_name, last_name, password, email, birth_date, position, library_code)
-VALUES ('Jane', 'Doe', 'password123', 'jane.doe@example.com', TO_DATE('1985-05-15', 'YYYY-MM-DD'), 'Manager', 'LIB001');
+INSERT INTO library.employee (id, first_name, last_name, password, email, birth_date, position, library_code)
+VALUES ('7-822-1692', 'Jane', 'Doe', 'password123', 'jane.doe@example.com', TO_DATE('1985-05-15', 'YYYY-MM-DD'), 'Manager', 'LIB001');
