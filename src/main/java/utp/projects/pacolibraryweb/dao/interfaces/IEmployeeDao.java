@@ -25,4 +25,13 @@ public interface IEmployeeDao {
      * @throws SQLException if there is an error accessing the database
      */
     void addEmployee(Employee employee) throws SQLException;
+
+    /**
+     * Retrieves an employee from the database by their id.
+     * 
+     * @param id the id of the employee to retrieve
+     * @return the employee with the specified id
+     * @throws SQLException if there is an error accessing the database
+     */
+    Employee getEmployeeById(String id) throws SQLException;
 }

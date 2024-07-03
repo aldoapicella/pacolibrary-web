@@ -69,6 +69,7 @@ public class EmployeeDao implements IEmployeeDao{
      * @return The employee with the specified id.
      * @throws SQLException if a database access error occurs.
      */
+    @Override
     public Employee getEmployeeById(int id) throws SQLException {
         try (Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(GET_EMPLOYEE_BY_ID_QUERY)) {
