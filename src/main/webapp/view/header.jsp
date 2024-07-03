@@ -1,4 +1,4 @@
-<%
+<%!
     HttpSession session = request.getSession(false);
     String userName = (session != null) ? (String) session.getAttribute("userName") : null;
     String userType = (session != null) ? (String) session.getAttribute("userType") : null;
