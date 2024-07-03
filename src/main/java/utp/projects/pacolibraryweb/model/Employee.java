@@ -6,7 +6,7 @@ import java.util.Date;
  * Represents an employee in the library system.
  */
 public class Employee {
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -25,7 +25,7 @@ public class Employee {
      * @param position      the position of the employee
      * @param libraryCode   the library code of the employee
      */
-    public Employee(int id, String firstName, String lastName, String email, Date birthDate, EmployePosition position, String libraryCode) {
+    public Employee(String id, String firstName, String lastName, String email, Date birthDate, EmployePosition position, String libraryCode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,7 +40,7 @@ public class Employee {
      *
      * @return the employee ID
      */
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -49,7 +49,7 @@ public class Employee {
      *
      * @param id the employee ID to set
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

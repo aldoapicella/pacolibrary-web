@@ -53,7 +53,7 @@ public class EmployeeDao implements IEmployeeDao{
     public void addEmployee(Employee employee) throws SQLException {
         try (Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(ADD_EMPLOYEE_QUERY)) {
-            statement.setInt(1, employee.getId());
+            statement.setString(1, employee.getId());
             statement.setString(2, employee.getFirstName());
             statement.setString(3, employee.getLastName());
             statement.setString(4, employee.getEmail());
@@ -70,10 +70,10 @@ public class EmployeeDao implements IEmployeeDao{
      * @throws SQLException if a database access error occurs.
      */
     @Override
-    public Employee getEmployeeById(int id) throws SQLException {
+    public Employee getEmployeeById(String id) throws SQLException {
         try (Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(GET_EMPLOYEE_BY_ID_QUERY)) {
-            statement.setInt(1, id);
+            statement.setString(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     String firstName = resultSet.getString("first_name");
