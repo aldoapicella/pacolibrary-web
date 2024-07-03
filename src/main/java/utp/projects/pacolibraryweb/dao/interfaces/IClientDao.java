@@ -28,11 +28,11 @@ public interface IClientDao {
     void addClient(Client client) throws SQLException;
 
     /**
-     * Fetches a client by id.
+     * Retireves a client from the database by their email.
      * 
-     * @param id the id of the client to fetch
+     * @param email the email of the client to retrieve
      * @return the client with the specified id
      * @throws SQLException if an error occurs while accessing the database
      */
-    Client getClientById(int id) throws SQLException;
+    Client getClientByEmail(String email) throws SQLException;
 }

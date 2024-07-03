@@ -12,7 +12,6 @@ public class Employee {
     private String lastName;
     private String secondLastName;
     private String email;
-    private String password;
     private Date birthDate;
     private EmployePosition position;
     private String libraryCode;
@@ -25,19 +24,17 @@ public class Employee {
      * @param middleName    the middle name of the employee
      * @param lastName      the last name of the employee
      * @param secondLastName the second last name of the employee
-     * @param password      the password of the employee
      * @param email         the email address of the employee
      * @param birthDate     the birth date of the employee
      * @param position      the position of the employee
      * @param libraryCode   the library code of the employee
      */
-    public Employee(int id, String firstName, String middleName, String lastName, String secondLastName, String password, String email, Date birthDate, EmployePosition position, String libraryCode) {
+    public Employee(int id, String firstName, String middleName, String lastName, String secondLastName, String email, Date birthDate, EmployePosition position, String libraryCode) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.secondLastName = secondLastName;
-        this.password = password;
         this.email = email;
         this.birthDate = birthDate;
         this.position = position;
@@ -132,24 +129,6 @@ public class Employee {
      */
     public void setSecondLastName(String secondLastName) {
         this.secondLastName = secondLastName;
-    }
-
-    /**
-     * Returns the password of the employee.
-     *
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Sets the password of the employee.
-     *
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     /**

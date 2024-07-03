@@ -15,6 +15,8 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  * Client table.
  */
 public class ClientDao implements IClientDao {
+    private static final String VALIDATE_CLIENT_QUERY = "SELECT COUNT(*) FROM client WHERE email = ? AND password = ?";
+    private static final String ADD_CLIENT_QUERY = "INSERT INTO client (first_name, middle_name, last_name, second_last_name, password, email) VALUES (?, ?, ?, ?, ?, ?)";
 
     /**
      * Validates a client by checking if the provided email and password match a
@@ -27,9 +29,8 @@ public class ClientDao implements IClientDao {
      */
     @Override
     public boolean validateClient(String email, String password) throws SQLException {
-        String sql = "SELECT * FROM client WHERE email = ? AND password = ?";
-        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-
+        try (Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(VALIDATE_CLIENT_QUERY)) {
             statement.setString(1, email);
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
@@ -45,9 +46,8 @@ public class ClientDao implements IClientDao {
      */
     @Override
     public void addClient(Client client) throws SQLException {
-        String sql = "INSERT INTO client (first_name, middle_name, last_name, second_last_name, password, email) VALUES (?, ?, ?, ?, ?, ?)";
-        try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-
+        try (Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(ADD_CLIENT_QUERY)) {
             statement.setString(1, client.getFirstName());
             statement.setString(2, client.getMiddleName());
             statement.setString(3, client.getLastName());
@@ -59,29 +59,26 @@ public class ClientDao implements IClientDao {
     }
 
     /**
-     * Fetches a client from the database by their id.
+     * Retrieves a client from the database by their email.
      *
-     * @param id The id of the client to fetch.
+     * @param email The email of the client to fetch.
      * @return The client object if found, null otherwise.
      * @throws SQLException if a database access error occurs.
      */
     @Override
-    public Client getClientById(int id) throws SQLException {
-        String sql = "SELECT * FROM client WHERE id = ?";
+    public Client getClientByEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM client WHERE email = ?";
         try (Connection connection = DatabaseConnection.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return new Client(
-                        resultSet.getInt("id"),
-                        resultSet.getString("first_name"),
-                        resultSet.getString("middle_name"),
-                        resultSet.getString("last_name"),
-                        resultSet.getString("second_last_name"),
-                        resultSet.getString("password"),
-                        resultSet.getString("email")
-                );
+            statement.setString(1, email);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String firstName = resultSet.getString("first_name");
+                    String middleName = resultSet.getString("middle_name");
+                    String lastName = resultSet.getString("last_name");
+                    String secondLastName = resultSet.getString("second_last_name");
+                    return new Client(id, firstName, middleName, lastName, secondLastName, email);
+                }
             }
             return null;
         }

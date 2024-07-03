@@ -9,7 +9,6 @@ public class Client {
     private String middleName;
     private String lastName;
     private String secondLastName;
-    private String password;
     private String email;
 
     /**
@@ -20,16 +19,14 @@ public class Client {
      * @param middleName    the middle name of the client
      * @param lastName      the last name of the client
      * @param secondLastName the second last name of the client
-     * @param password      the password of the client
      * @param email         the email address of the client
      */
-    public Client(int id, String firstName, String middleName, String lastName, String secondLastName, String password, String email) {
+    public Client(int id, String firstName, String middleName, String lastName, String secondLastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.secondLastName = secondLastName;
-        this.password = password;
         this.email = email;
     }
 
@@ -121,24 +118,6 @@ public class Client {
      */
     public void setSecondLastName(String secondLastName) {
         this.secondLastName = secondLastName;
-    }
-
-    /**
-     * Returns the password of the client.
-     *
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Sets the password of the client.
-     *
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     /**
