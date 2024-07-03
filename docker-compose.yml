@@ -26,7 +26,7 @@ services:
     volumes:
       - ./target:/usr/local/tomcat/webapps
     environment:
-      - DB_URL=jdbc:oracle:thin:@oracle-db:1521:orclpdb1
+      - DB_URL=jdbc:oracle:thin:@//oracle-db:1521/orclpdb1
       - DB_USER=library
       - DB_PASSWORD=mypassword
     depends_on:
