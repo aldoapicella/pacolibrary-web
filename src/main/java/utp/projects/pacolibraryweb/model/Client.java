@@ -6,9 +6,7 @@ package utp.projects.pacolibraryweb.model;
 public class Client {
     private int id;
     private String firstName;
-    private String middleName;
     private String lastName;
-    private String secondLastName;
     private String email;
 
     /**
@@ -16,17 +14,13 @@ public class Client {
      *
      * @param id            the client ID
      * @param firstName     the first name of the client
-     * @param middleName    the middle name of the client
      * @param lastName      the last name of the client
-     * @param secondLastName the second last name of the client
      * @param email         the email address of the client
      */
-    public Client(int id, String firstName, String middleName, String lastName, String secondLastName, String email) {
+    public Client(int id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
-        this.middleName = middleName;
         this.lastName = lastName;
-        this.secondLastName = secondLastName;
         this.email = email;
     }
 
@@ -67,24 +61,6 @@ public class Client {
     }
 
     /**
-     * Returns the middle name of the client.
-     *
-     * @return the middle name
-     */
-    public String getMiddleName() {
-        return middleName;
-    }
-
-    /**
-     * Sets the middle name of the client.
-     *
-     * @param middleName the middle name to set
-     */
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    /**
      * Returns the last name of the client.
      *
      * @return the last name
@@ -100,24 +76,6 @@ public class Client {
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    /**
-     * Returns the second last name of the client.
-     *
-     * @return the second last name
-     */
-    public String getSecondLastName() {
-        return secondLastName;
-    }
-
-    /**
-     * Sets the second last name of the client.
-     *
-     * @param secondLastName the second last name to set
-     */
-    public void setSecondLastName(String secondLastName) {
-        this.secondLastName = secondLastName;
     }
 
     /**

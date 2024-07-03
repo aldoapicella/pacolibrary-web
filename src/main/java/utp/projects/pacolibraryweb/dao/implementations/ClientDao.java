@@ -16,7 +16,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  */
 public class ClientDao implements IClientDao {
     private static final String VALIDATE_CLIENT_QUERY = "SELECT COUNT(*) FROM client WHERE email = ? AND password = ?";
-    private static final String ADD_CLIENT_QUERY = "INSERT INTO client (first_name, middle_name, last_name, second_last_name, email) VALUES (?, ?, ?, ?, ?)";
+    private static final String ADD_CLIENT_QUERY = "INSERT INTO client (first_name, last_name, email) VALUES (?, ?, ?)";
 
     /**
      * Validates a client by checking if the provided email and password match a
@@ -49,10 +49,8 @@ public class ClientDao implements IClientDao {
         try (Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(ADD_CLIENT_QUERY)) {
             statement.setString(1, client.getFirstName());
-            statement.setString(2, client.getMiddleName());
-            statement.setString(3, client.getLastName());
-            statement.setString(4, client.getSecondLastName());
-            statement.setString(5, client.getEmail());
+            statement.setString(2, client.getLastName());
+            statement.setString(3, client.getEmail());
             statement.executeUpdate();
         }
     }
@@ -73,10 +71,8 @@ public class ClientDao implements IClientDao {
                 if (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String firstName = resultSet.getString("first_name");
-                    String middleName = resultSet.getString("middle_name");
                     String lastName = resultSet.getString("last_name");
-                    String secondLastName = resultSet.getString("second_last_name");
-                    return new Client(id, firstName, middleName, lastName, secondLastName, email);
+                    return new Client(id, firstName, lastName, email);
                 }
             }
             return null;

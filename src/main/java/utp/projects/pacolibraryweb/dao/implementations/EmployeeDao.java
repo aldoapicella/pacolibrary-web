@@ -16,7 +16,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  */
 public class EmployeeDao implements IEmployeeDao{
     private static final String VALIDATE_EMPLOYEE_QUERY = "SELECT COUNT(*) FROM employees WHERE email = ? AND password = ?";
-    private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employees (first_name, last_name, email, password, position) VALUES (?, ?, ?, ?, ?)";
+    private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employees (id, first_name, last_name, email, position) VALUES (?, ?, ?, ?, ?)";
 
     /**
      * Validates an employee by checking if the provided email and password match a
@@ -50,10 +50,10 @@ public class EmployeeDao implements IEmployeeDao{
     public void addEmployee(Employee employee) throws SQLException {
         try (Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(ADD_EMPLOYEE_QUERY)) {
-            statement.setString(1, employee.getFirstName());
-            statement.setString(2, employee.getLastName());
-            statement.setString(3, employee.getEmail());
-            statement.setString(4, employee.getPassword());
+            statement.setInt(1, employee.getId());
+            statement.setString(2, employee.getFirstName());
+            statement.setString(3, employee.getLastName());
+            statement.setString(4, employee.getEmail());
             statement.setString(5, employee.getPosition().name());
             statement.executeUpdate();
         }
