@@ -25,7 +25,7 @@ public class Employee {
      * @param position      the position of the employee
      * @param libraryCode   the library code of the employee
      */
-    public Employee(int id, String firstName, String lastName, String secondLastName, String email, Date birthDate, EmployePosition position, String libraryCode) {
+    public Employee(int id, String firstName, String lastName, String email, Date birthDate, EmployePosition position, String libraryCode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

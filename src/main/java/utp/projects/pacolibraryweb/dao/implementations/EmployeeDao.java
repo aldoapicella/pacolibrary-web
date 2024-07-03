@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 import utp.projects.pacolibraryweb.dao.interfaces.IEmployeeDao;
+import utp.projects.pacolibraryweb.model.EmployePosition;
 import utp.projects.pacolibraryweb.model.Employee;
 import utp.projects.pacolibraryweb.util.DatabaseConnection;
 
@@ -17,6 +19,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
 public class EmployeeDao implements IEmployeeDao{
     private static final String VALIDATE_EMPLOYEE_QUERY = "SELECT COUNT(*) FROM employees WHERE email = ? AND password = ?";
     private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employees (id, first_name, last_name, email, position) VALUES (?, ?, ?, ?, ?)";
+    private static final String GET_EMPLOYEE_BY_ID_QUERY = "SELECT id, first_name, last_name, email, birth_date, position, library_code FROM employees WHERE id = ?";
 
     /**
      * Validates an employee by checking if the provided email and password match a
@@ -57,5 +60,31 @@ public class EmployeeDao implements IEmployeeDao{
             statement.setString(5, employee.getPosition().name());
             statement.executeUpdate();
         }
+    }
+
+    /**
+     * Retrieves an employee from the database by their id.
+     *
+     * @param id The id of the employee to fetch.
+     * @return The employee with the specified id.
+     * @throws SQLException if a database access error occurs.
+     */
+    public Employee getEmployeeById(int id) throws SQLException {
+        try (Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(GET_EMPLOYEE_BY_ID_QUERY)) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String firstName = resultSet.getString("first_name");
+                    String lastName = resultSet.getString("last_name");
+                    String email = resultSet.getString("email");
+                    Date birthDate = resultSet.getDate("birth_date");
+                    EmployePosition position = EmployePosition.valueOf(resultSet.getString("position"));
+                    String libraryCode = resultSet.getString("library_code");
+                    return new Employee(id, firstName, lastName, email, birthDate, position, libraryCode);
+                }
+            }
+        }
+        return null;
     }
 }
