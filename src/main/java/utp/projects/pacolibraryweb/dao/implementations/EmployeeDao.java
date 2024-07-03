@@ -17,24 +17,24 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  * Employee table.
  */
 public class EmployeeDao implements IEmployeeDao{
-    private static final String VALIDATE_EMPLOYEE_QUERY = "SELECT COUNT(*) FROM employees WHERE email = ? AND password = ?";
+    private static final String VALIDATE_EMPLOYEE_QUERY = "SELECT COUNT(*) FROM employees WHERE id = ? AND password = ?";
     private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employees (id, first_name, last_name, email, position) VALUES (?, ?, ?, ?, ?)";
     private static final String GET_EMPLOYEE_BY_ID_QUERY = "SELECT id, first_name, last_name, email, birth_date, position, library_code FROM employees WHERE id = ?";
 
     /**
-     * Validates an employee by checking if the provided email and password match a
+     * Validates an employee by checking if the provided id and password match a
      * record in the database.
      *
-     * @param email The email of the employee.
+     * @param id The id of the employee.
      * @param password The password of the employee.
      * @return true if the employee is valid, false otherwise.
      * @throws SQLException if a database access error occurs.
      */
     @Override
-    public boolean validateEmployee(String email, String password) throws SQLException {
+    public boolean validateEmployee(String id, String password) throws SQLException {
         try (Connection connection = DatabaseConnection.getConnection();
                  PreparedStatement statement = connection.prepareStatement(VALIDATE_EMPLOYEE_QUERY)) {
-            statement.setString(1, email);
+            statement.setString(1, id);
             statement.setString(2, password);
             try (ResultSet resultSet = statement.executeQuery()) {
                 resultSet.next();

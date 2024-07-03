@@ -27,8 +27,8 @@ services:
       - ./target:/usr/local/tomcat/webapps
     environment:
       - DB_URL=jdbc:oracle:thin:@oracle-db:1521:ORCLPDB1
-      - DB_USER=system
-      - DB_PASSWORD=Oracle_123
+      - DB_USER=library
+      - DB_PASSWORD=mypassword
     depends_on:
       - oracle-db
 
