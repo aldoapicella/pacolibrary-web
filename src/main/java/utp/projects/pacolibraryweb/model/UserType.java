@@ -5,5 +5,5 @@ package utp.projects.pacolibraryweb.model;
  */
 public enum UserType {
     CLIENT,
-    EMPLOYEE
+    EMPLOYEE;
 }

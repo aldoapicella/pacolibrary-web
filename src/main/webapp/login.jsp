@@ -7,8 +7,8 @@
     <form action="auth" method="post">
         <label for="user_type">User Type:</label>
         <select id="user_type" name="user_type">
-            <option value="client">Client</option>
-            <option value="employee">Employee</option>
+            <option value="CLIENT">Client</option>
+            <option value="EMPLOYEE">Employee</option>
         </select>
         <br>
         <label for="identifier">Email or Cedula:</label>
