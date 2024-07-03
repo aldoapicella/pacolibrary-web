@@ -62,6 +62,7 @@ public class AuthServlet extends HttpServlet {
         }
 
         session.setAttribute("isAuthenticated", isAuthenticated);
+        session.setAttribute("userType", userType);
         session.setAttribute("userName", userName);
         response.sendRedirect(isAuthenticated ? "home.jsp" : "login.jsp");
     }
