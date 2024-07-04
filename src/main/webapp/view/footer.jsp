@@ -25,7 +25,7 @@
                 </c:otherwise>
             </c:choose>
         </div>
-    </div> 
+    </div>
     <!--COPYRIGHT-->
     <div class="Copyright">
         <p>© 2024, Libreria ¡Donde Paco!</p>
