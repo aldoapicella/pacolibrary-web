@@ -4,9 +4,8 @@ body{
     padding: 0;
     background-color: #F2E5D5;
 }
-h2{
+h1{
     font-family: 'Playwrite GB S', cursive;
-    color: #1B3F48;
 }
 
 /*HEADER*/
@@ -93,84 +92,64 @@ h2{
     transform-origin: bottom left; /*cambiar el origen de la transformacion*/
 }
 
+/* CSS DEL MAIN*/
 
+/* Estilos para la sección de main*/
 main {
     background-color: #F2E5D5;
-    padding: 20%;
+    padding: 40px;
     font-family: 'Nunito', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(79vh - 165px); /* Ajusta la altura restando la altura del header y footer */
 }
 
-.registro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
+h1 {
+    text-align: left;
+    color: #1B3F48;
+    font-size: 2em;
+    margin-bottom: 20px;
+    padding-left: 40px;
 }
 
-.registro-box {
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cuadro {
+    width: calc(38% - 40px); /*ancho del elemento será el 50% del ancho del contenedor padre Resta 40 píxeles del valor calculado */
     background-color: white;
-    padding: 30px;
+    padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 15px ;
     text-align: center;
-    width: 400px;
     border: 1px solid #1B3F48;
-}
-
-.registro-box h2 {
-    margin: 0;
-    color: #000;
-    font-size: 24px; /* Ajuste del tamaño de la fuente */
-    font-weight: bold; /* Texto en negrita */
-}
-
-.registro-box hr {
-    border: none;
-    border-top: 1px solid #1B3F48;
-    margin: 20px 0; /* Ajuste del margen */
-}
-
-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
 }
 
-.input-group {
-    display: flex;
-    gap: 15px;
-}
-
-input {
-    width: 95%;
-    padding: 10px;
-    border-radius: 20px;
+.cuadro img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 8px;
     border: 1px solid #1B3F48;
-    outline: none;
 }
-label{
-    color: #000;
+
+.info {
     text-align: left;
+    width: 100%;
+    color: #1B3F48;
 }
 
-button.btn {
-    background-color: #1B3F48;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
+.info p {
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 1em;
 }
 
-button.btn:hover {
-    background-color: #163439;
-}
 /*FOOTER DONDE ESTA EL MENU NAVEGACION*/
 .Menu-footer{
     margin-top: 0%;

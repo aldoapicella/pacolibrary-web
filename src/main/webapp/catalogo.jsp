@@ -1,14 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html lang="es">
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cátalogo</title>
+    <title>Catálogo</title>
     <link rel="stylesheet" href="../css/catalogo.css">
 </head>
 <body>
+    <!--HEADER-->
+    <%
+        // Declaración de la sesión, nombre de usuario y tipo de usuario
+        final HttpSession session = request.getSession(false);
+        String userName = null;
+        String userType = null;
+        if (session != null) {
+            userName = (String) session.getAttribute("userName");
+            userType = (String) session.getAttribute("userType");
+        }
+    %>
+    <header>
+        <!--LOGO Y REDES-->
+        <div class="LogoRedes">
+            <div class="logo">
+                <img src="../images/LOGO.png" alt="Librería ¡Donde Paco!">
+            </div>
+            <div class="Redes">
+                <ul>
+                    <li><a href="https://www.instagram.com"><img src="../images/Instagram.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.facebook.com"><img src="../images/Facebook.png" alt="Facebook"></a></li>
+                    <li><a href="https://www.google.com/webhp?hl=es&sa=X&ved=0ahUKEwjdofSloIGHAxVQmYQIHetICooQPAgI"><img src="../images/Buscar.png" alt="Buscar"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--MENU-->
+        <div class="Menu">
+            <ul>
+                <li><a href="home.jsp">Home</a></li>
+                <li><a href="sobrenosotros.jsp">Sobre Nosotros</a></li>
+                <li><a href="sucursal.jsp">Contacto</a></li>
+            </ul>  
+            <div class="Usuario">
+                <a href="perfiles.jsp"><img src="../images/Usuario.png" alt="Usuario"></a>
+                <%
+                    if (userName != null) {
+                        if ("CLIENT".equals(userType)) {
+                            out.println("Cliente: " + userName);
+                        } else if ("EMPLOYEE".equals(userType)) {
+                            out.println("Empleado: " + userName);
+                        }
+                    } else {
+                        out.println("<a href='login.jsp'>Únete</a>");
+                    }
+                %>
+            </div>
+        </div>
+    </header>
     <main>
         <div class="main-content">
             <aside class="filter-section">
@@ -41,7 +89,34 @@
             </section>
         </div>
     </main>
-    <!-- Incluir el footer.jsp -->
-    <jsp:include page="footer.jsp"/>
+    <footer>
+        <link rel="stylesheet" href="../styles/styleheader_footer.css">
+        <!--MENU-->
+        <div class="Menu-footer">
+            <ul>
+                <li><a href="home.jsp">Home</a></li>
+                <li><a href="sobrenosotros.jsp">Sobre Nosotros</a></li>
+                <li><a href="sucursal.jsp">Contacto</a></li>
+            </ul>  
+            <div class="Usuario-footer">
+                <a href="perfiles.jsp"><img src="../images/Usuario.png" alt="Usuario"></a>
+                <%
+                    if (userName != null) {
+                        if ("CLIENT".equals(userType)) {
+                            out.println("Cliente: " + userName);
+                        } else if ("EMPLOYEE".equals(userType)) {
+                            out.println("Empleado: " + userName);
+                        }
+                    } else {
+                        out.println("<a href='login.jsp'>Únete</a>");
+                    }
+                %>
+            </div>
+        </div> 
+        <!--COPYRIGHT-->
+        <div class="Copyright">
+            <p>© 2024, Libreria ¡Donde Paco!</p>
+        </div>
+    </footer>
 </body>
 </html>

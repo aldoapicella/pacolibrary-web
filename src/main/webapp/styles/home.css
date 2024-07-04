@@ -1,10 +1,14 @@
-body{
-    font-family: 'Nunito', sans-serif;
+/* Establecer el body y el html para ocupar toda la altura */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Nunito', sans-serif;
     background-color: #F2E5D5;
+    display: flex;
+    flex-direction: column;
 }
-h2{
+h1{
     font-family: 'Playwrite GB S', cursive;
     color: #1B3F48;
 }
@@ -93,84 +97,6 @@ h2{
     transform-origin: bottom left; /*cambiar el origen de la transformacion*/
 }
 
-
-main {
-    background-color: #F2E5D5;
-    padding: 20%;
-    font-family: 'Nunito', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(79vh - 165px); /* Ajusta la altura restando la altura del header y footer */
-}
-
-.registro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-}
-
-.registro-box {
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-    width: 400px;
-    border: 1px solid #1B3F48;
-}
-
-.registro-box h2 {
-    margin: 0;
-    color: #000;
-    font-size: 24px; /* Ajuste del tamaño de la fuente */
-    font-weight: bold; /* Texto en negrita */
-}
-
-.registro-box hr {
-    border: none;
-    border-top: 1px solid #1B3F48;
-    margin: 20px 0; /* Ajuste del margen */
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-group {
-    display: flex;
-    gap: 15px;
-}
-
-input {
-    width: 95%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #1B3F48;
-    outline: none;
-}
-label{
-    color: #000;
-    text-align: left;
-}
-
-button.btn {
-    background-color: #1B3F48;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-}
-
-button.btn:hover {
-    background-color: #163439;
-}
 /*FOOTER DONDE ESTA EL MENU NAVEGACION*/
 .Menu-footer{
     margin-top: 0%;
@@ -220,3 +146,135 @@ button.btn:hover {
     justify-content: center;
 }
 
+/*CONTENIDO PRINCIPAL*/
+.welcome-message {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.welcome-message h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.welcome-message p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.slider {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #1B3F48;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.active {
+    display: flex;
+}
+
+.image-container {
+    width: 50%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #1B3F48;
+    margin-left: 25px;
+    padding: 2%;
+}
+
+.image-container img, .image-container iframe {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text-content {
+    width: 50%;
+    height: 100%;
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: left;
+    color: #1B3F48;
+    margin: 3%;
+}
+
+.text-content h2 {
+    margin-top: 0;
+    color: #000000;
+}
+
+.text-content p {
+    font-size: 1em;
+    color: #000000;
+}
+
+.text-content button {
+    background-color: #1B3F48;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.text-content button:hover {
+    background-color: #284f58;
+}
+
+.slider-controls {
+    float: right;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10%;
+}
+
+.slider-controls button {
+    background-color: #EDEDED;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.slider-controls button:hover {
+    background-color: #a5a5a5;
+}
+
+.recuadro-slider-controls {
+    position: relative;
+    width: 10%;
+    padding: 10px;
+    margin: 1% auto;
+    overflow: hidden;
+    background-color: #1B3F48;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

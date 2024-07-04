@@ -4,11 +4,11 @@ body{
     padding: 0;
     background-color: #F2E5D5;
 }
-h2{
+
+h1{
     font-family: 'Playwrite GB S', cursive;
     color: #1B3F48;
 }
-
 /*HEADER*/
 /*HEADER DONDE ESTA EL LOGO Y LAS REDES*/
 .logo img{
@@ -93,10 +93,13 @@ h2{
     transform-origin: bottom left; /*cambiar el origen de la transformacion*/
 }
 
+/* CSS DEL MAIN DE ACCESOS A PERFILES*/
 
+
+/* Estilos para la sección de acceso */
 main {
     background-color: #F2E5D5;
-    padding: 20%;
+    padding: 40px;
     font-family: 'Nunito', sans-serif;
     display: flex;
     justify-content: center;
@@ -104,73 +107,64 @@ main {
     height: calc(79vh - 165px); /* Ajusta la altura restando la altura del header y footer */
 }
 
-.registro-container {
+.acceso-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: auto;
 }
 
-.registro-box {
+.acceso-box {
     background-color: white;
-    padding: 30px;
+    padding: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
-    width: 400px;
+    width: 400px; /* Ajuste del ancho para mejor presentación */
     border: 1px solid #1B3F48;
 }
 
-.registro-box h2 {
+.acceso-box h2 {
     margin: 0;
-    color: #000;
+    color: #1B3F48;
     font-size: 24px; /* Ajuste del tamaño de la fuente */
     font-weight: bold; /* Texto en negrita */
 }
 
-.registro-box hr {
+.acceso-box hr {
     border: none;
     border-top: 1px solid #1B3F48;
     margin: 20px 0; /* Ajuste del margen */
 }
 
-form {
+.acceso-box p {
+    margin: 20px 0; /* Ajuste del margen */
+    color: #1B3F48;
+    font-size: 18px; /* Ajuste del tamaño de la fuente */
+}
+
+.buttons {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-around;
+    margin-top: 20px;
 }
 
-.input-group {
-    display: flex;
-    gap: 15px;
-}
-
-input {
-    width: 95%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #1B3F48;
-    outline: none;
-}
-label{
-    color: #000;
-    text-align: left;
-}
-
-button.btn {
+.btn {
     background-color: #1B3F48;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
+    font-weight: bold;
     font-family: 'Nunito', sans-serif;
 }
 
-button.btn:hover {
+.btn:hover {
     background-color: #163439;
 }
+
+
 /*FOOTER DONDE ESTA EL MENU NAVEGACION*/
 .Menu-footer{
     margin-top: 0%;

@@ -4,10 +4,6 @@ body{
     padding: 0;
     background-color: #F2E5D5;
 }
-h2{
-    font-family: 'Playwrite GB S', cursive;
-    color: #1B3F48;
-}
 
 /*HEADER*/
 /*HEADER DONDE ESTA EL LOGO Y LAS REDES*/
@@ -93,84 +89,6 @@ h2{
     transform-origin: bottom left; /*cambiar el origen de la transformacion*/
 }
 
-
-main {
-    background-color: #F2E5D5;
-    padding: 20%;
-    font-family: 'Nunito', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(79vh - 165px); /* Ajusta la altura restando la altura del header y footer */
-}
-
-.registro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-}
-
-.registro-box {
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-    width: 400px;
-    border: 1px solid #1B3F48;
-}
-
-.registro-box h2 {
-    margin: 0;
-    color: #000;
-    font-size: 24px; /* Ajuste del tamaño de la fuente */
-    font-weight: bold; /* Texto en negrita */
-}
-
-.registro-box hr {
-    border: none;
-    border-top: 1px solid #1B3F48;
-    margin: 20px 0; /* Ajuste del margen */
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-group {
-    display: flex;
-    gap: 15px;
-}
-
-input {
-    width: 95%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #1B3F48;
-    outline: none;
-}
-label{
-    color: #000;
-    text-align: left;
-}
-
-button.btn {
-    background-color: #1B3F48;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-}
-
-button.btn:hover {
-    background-color: #163439;
-}
 /*FOOTER DONDE ESTA EL MENU NAVEGACION*/
 .Menu-footer{
     margin-top: 0%;
@@ -178,15 +96,17 @@ button.btn:hover {
     height: 70px;
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: 90px; /*cambio para que se centre el nav abajo*/
     justify-content: center;
 }
 
 .Menu-footer ul{
     list-style: none;
     display: flex;
-    gap: 100px;
+    gap: 90px; /*cambio para que se centre el nav abajo*/
+    padding: 0px; /*cambio para que se centre el nav abajo*/
 }
+
 
 .Menu-footer a{
     text-decoration: none;

@@ -5,12 +5,6 @@
 </head>
 <body>
     <form action="register" method="post">
-        <label for="user_type">Tipo de Usuario:</label>
-        <select id="user_type" name="user_type">
-            <option value="client">Cliente</option>
-            <option value="employee">Empleado</option>
-        </select>
-        <br>
         <label for="first_name">Nombre:</label>
         <input type="text" id="first_name" name="first_name">
         <br>

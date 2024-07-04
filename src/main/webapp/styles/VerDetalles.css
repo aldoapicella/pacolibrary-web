@@ -4,7 +4,7 @@ body{
     padding: 0;
     background-color: #F2E5D5;
 }
-h2{
+h1{
     font-family: 'Playwrite GB S', cursive;
     color: #1B3F48;
 }
@@ -93,84 +93,6 @@ h2{
     transform-origin: bottom left; /*cambiar el origen de la transformacion*/
 }
 
-
-main {
-    background-color: #F2E5D5;
-    padding: 20%;
-    font-family: 'Nunito', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(79vh - 165px); /* Ajusta la altura restando la altura del header y footer */
-}
-
-.registro-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-}
-
-.registro-box {
-    background-color: white;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-    width: 400px;
-    border: 1px solid #1B3F48;
-}
-
-.registro-box h2 {
-    margin: 0;
-    color: #000;
-    font-size: 24px; /* Ajuste del tamaño de la fuente */
-    font-weight: bold; /* Texto en negrita */
-}
-
-.registro-box hr {
-    border: none;
-    border-top: 1px solid #1B3F48;
-    margin: 20px 0; /* Ajuste del margen */
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.input-group {
-    display: flex;
-    gap: 15px;
-}
-
-input {
-    width: 95%;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #1B3F48;
-    outline: none;
-}
-label{
-    color: #000;
-    text-align: left;
-}
-
-button.btn {
-    background-color: #1B3F48;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-}
-
-button.btn:hover {
-    background-color: #163439;
-}
 /*FOOTER DONDE ESTA EL MENU NAVEGACION*/
 .Menu-footer{
     margin-top: 0%;
@@ -178,15 +100,17 @@ button.btn:hover {
     height: 70px;
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: 90px; /*cambio para que se centre el nav abajo*/
     justify-content: center;
 }
 
 .Menu-footer ul{
     list-style: none;
     display: flex;
-    gap: 100px;
+    gap: 90px; /*cambio para que se centre el nav abajo*/
+    padding: 0px; /*cambio para que se centre el nav abajo*/
 }
+
 
 .Menu-footer a{
     text-decoration: none;
@@ -220,3 +144,121 @@ button.btn:hover {
     justify-content: center;
 }
 
+
+
+/*Estilo General del cuerpo*/
+main {
+    background-color: #F2E5D5;
+    padding: 40px;
+    font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+    text-align: left;
+    color: #1B3F48;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+h2{
+    font-size: 27px;
+    font-weight: 800;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si hay altura definida */
+}
+
+/*Estilo de la tabla/*/
+table{
+    border-collapse:collapse;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+th{
+    background-color: #89673a;
+    padding: 10px;
+    color: #ffffff;
+}
+
+td{
+    padding: 20px;
+    background-color: #eed3ad;
+}
+
+.columna1{
+    font-weight: 700;
+}
+/*para separar cada fila con un borde*/
+#fila-data{
+    border-bottom: 2px solid #89673a;
+}
+
+/*Para redondear las esquinas de las heads*/
+th:first-child {
+    border-top-left-radius: 10px;
+}
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+/*Para redondear las esquinas de la ultima fila de data*/
+#ultimafila td:first-child{
+    border-bottom-left-radius: 10px;
+}
+
+#ultimafila td:last-child{
+    border-bottom-right-radius: 10px;
+}
+
+/*Boton de imprimir*/
+button {
+
+    font-family: inherit;
+    padding: 20px 30px;
+    font-size: 23px;
+    font-weight: 700;
+    color: white;
+    background-color: #308499;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex; /* Cambia a flexbox */
+    align-items: center; /* Alinea verticalmente */
+}
+
+button:hover {
+    background-color: #2b7284;
+    scale: 1.03;
+}
+
+#logoimprimir{
+    height: 30px;
+    width: auto;
+    margin-left: 10px;
+}
+
+/*Configuración de las cajas*/
+.Detalles {
+    text-align: center; /* Centra horizontalmente todo el contenido */
+}
+
+.tablascontenedor {
+    display: inline-block; /* Para que los divs de las tablas estén en línea */
+    vertical-align: middle; /* Alinea verticalmente en el centro */
+    margin: 20px;
+}
+
+.DetallesGenerales, .ArticulosComprados {
+    display: inline-block; /* Para que las tablas estén en línea */
+    margin: 0 40px; /* Espacio entre las tablas */
+    vertical-align: top; /* Alinea las tablas en la parte superior */
+}
+
+.contenedorboton{
+    display:block;
+}
