@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import utp.projects.pacolibraryweb.dao.interfaces.IBookDao;
 import utp.projects.pacolibraryweb.model.Author;
 import utp.projects.pacolibraryweb.model.Book;
 import utp.projects.pacolibraryweb.model.Publisher;
@@ -18,7 +19,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
 /**
  * The BookDao class provides methods to interact with the book data in the database.
  */
-public class BookDao {
+public class BookDao implements IBookDao{
     private static final Logger LOGGER = Logger.getLogger(BookDao.class.getName());
 
     private static final String GET_BOOKS_BY_PUBLISHER_AND_AUTHOR =
