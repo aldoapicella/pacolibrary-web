@@ -2,78 +2,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registro Empleado</title>
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F2E5D5;
-        }
-        h2 {
-            font-family: 'Playwrite GB S', cursive;
-            color: #1B3F48;
-        }
-        main {
-            background-color: #F2E5D5;
-            padding: 10%;
-            font-family: 'Nunito', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(79vh - 165px); /* Ajusta la altura restando la altura del header y footer */
-        }
-        .registro-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: auto;
-        }
-        .registro-box {
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            text-align: center;
-            width: 400px;
-            border: 1px solid #1B3F48;
-        }
-        .registro-box h2 {
-            margin: 0;
-            color: #000;
-            font-size: 24px; /* Ajuste del tamaño de la fuente */
-            font-weight: bold; /* Texto en negrita */
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input, select {
-            width: 95%;
-            padding: 10px;
-            border-radius: 20px;
-            border: 1px solid #1B3F48;
-            outline: none;
-        }
-        label {
-            color: #000;
-            text-align: left;
-        }
-        button.btn {
-            background-color: #1B3F48;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Nunito', sans-serif;
-        }
-        button.btn:hover {
-            background-color: #163439;
-        }
-    </style>
+    <head> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width">
+        <title>Registro de Empleado</title>
+        <link rel="shortcut icon" href="../images/LOGO.png" alt="logo"> 
+        <!--Documentos CSS utilizados-->
+        <link rel="stylesheet" href="../styles/registro.css">
+        <!---Fuente Nunito de Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <!---Fuente Playwrite England SemiJoined de Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:wght@100..400&display=swap" rel="stylesheet">
+    </head>
 </head>
 <body>
     <main>
