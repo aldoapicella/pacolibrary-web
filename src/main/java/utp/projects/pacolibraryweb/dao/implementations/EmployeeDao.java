@@ -20,6 +20,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  */
 public class EmployeeDao implements IEmployeeDao{
     private static final Logger LOGGER = Logger.getLogger(EmployeeDao.class.getName());
+
     private static final String VALIDATE_EMPLOYEE_QUERY = "SELECT COUNT(*) FROM employee WHERE id = ? AND password = ?";
     private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employee (id, first_name, last_name, email, position) VALUES (?, ?, ?, ?, ?)";
     private static final String GET_EMPLOYEE_BY_ID_QUERY = "SELECT id, first_name, last_name, email, birth_date, position, library_code FROM employee WHERE id = ?";

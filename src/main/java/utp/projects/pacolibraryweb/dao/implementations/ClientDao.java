@@ -18,6 +18,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
  */
 public class ClientDao implements IClientDao {
     private static final Logger LOGGER = Logger.getLogger(ClientDao.class.getName());
+
     private static final String VALIDATE_CLIENT_QUERY = "SELECT COUNT(*) FROM client WHERE email = ? AND password = ?";
     private static final String ADD_CLIENT_QUERY = "INSERT INTO client (first_name, last_name, email) VALUES (?, ?, ?)";
     private static final String GET_CLIENT_BY_EMAIL_QUERY = "SELECT id, first_name, last_name, email FROM client WHERE email = ?";
