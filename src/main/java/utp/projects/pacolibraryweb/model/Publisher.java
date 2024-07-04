@@ -1,43 +1,43 @@
 package utp.projects.pacolibraryweb.model;
 
 /**
- * Represents an editorial in the library system.
+ * Represents an publisher in the library system.
  */
-public class Editorial {
+public class Publisher {
     private int id;
     private String name;
 
     /**
-     * Constructs an Editorial object with the specified details.
+     * Constructs a publisher object with the specified details.
      *
-     * @param id the editorial ID
-     * @param name the name of the editorial
+     * @param id the publisher ID
+     * @param name the name of the publisher
      */
-    public Editorial(int id, String name) {
+    public Publisher(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
     /**
-     * Returns the ID of the editorial.
+     * Returns the ID of the publisher.
      *
-     * @return the editorial ID
+     * @return the publisher ID
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Sets the ID of the editorial.
+     * Sets the ID of the publisher.
      *
-     * @param id the editorial ID to set
+     * @param id the publisher ID to set
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Returns the name of the editorial.
+     * Returns the name of the publisher.
      *
      * @return the name
      */
@@ -46,7 +46,7 @@ public class Editorial {
     }
 
     /**
-     * Sets the name of the editorial.
+     * Sets the name of the publisher.
      *
      * @param name the name to set
      */

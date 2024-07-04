@@ -3,7 +3,7 @@ package utp.projects.pacolibraryweb.model;
 /**
  * Represents an author in the library system.
  */
-public class Autor {
+public class Author {
     private int id;
     private String fullName;
 
@@ -13,7 +13,7 @@ public class Autor {
      * @param id
      * @param fullName
      */
-    public Autor(int id, String fullName) {
+    public Author(int id, String fullName) {
         this.id = id;
         this.fullName = fullName;
     }
