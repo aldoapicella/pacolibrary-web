@@ -45,6 +45,8 @@
         </div>
     </div>
 </main>
+<!-- Incluir el footer.jsp -->
+<jsp:include page="footer.jsp"/>
 
 
 <!-- Incluir el archivo JavaScript externo -->

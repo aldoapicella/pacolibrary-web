@@ -41,5 +41,7 @@
             </section>
         </div>
     </main>
+    <!-- Incluir el footer.jsp -->
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>

@@ -30,5 +30,7 @@
             <img src="realizado.gif" height="100px" width="100px">
         </div>
     </main>
+    <!-- Incluir el footer.jsp -->
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>
