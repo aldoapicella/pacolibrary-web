@@ -1,4 +1,5 @@
 <footer>
+    <link rel="stylesheet" href="../styles/styleheader_footer.css">
     <!--MENU-->
     <div class="Menu-footer">
         <ul>
