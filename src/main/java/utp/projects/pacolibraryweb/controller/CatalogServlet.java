@@ -14,6 +14,12 @@ import utp.projects.pacolibraryweb.model.Book;
 import utp.projects.pacolibraryweb.model.Publisher;
 import utp.projects.pacolibraryweb.service.CatalogService;
 
+/**
+ * The CatalogServlet class is a servlet that handles requests related to the catalog of books.
+ * It retrieves information about authors and publishers from the request parameters and uses the CatalogService
+ * to fetch the books that match the given author and publisher. The retrieved books are then forwarded to the
+ * catalogo.jsp page for display.
+ */
 @WebServlet("/CatalogServlet")
 public class CatalogServlet extends HttpServlet {
     private CatalogService catalogService;
@@ -23,6 +29,18 @@ public class CatalogServlet extends HttpServlet {
         catalogService = new CatalogService();
     }
 
+    /**
+     * Handles the GET request by retrieving the author and publisher names from the request parameters,
+     * fetching the books that match the given author and publisher, and forwarding the books to the catalogo.jsp page.
+     *
+     * If the author or publisher is not found, an error response with status code 404 is sent.
+     * If an error occurs while retrieving the catalog, an error response with status code 500 is sent.
+     *
+     * @param request  The HttpServletRequest object.
+     * @param response The HttpServletResponse object.
+     * @throws ServletException If an error occurs while processing the request.
+     * @throws IOException      If an error occurs while handling the I/O operations.
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String authorName = request.getParameter("autor");
