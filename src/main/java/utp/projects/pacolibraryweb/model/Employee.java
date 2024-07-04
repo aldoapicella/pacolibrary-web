@@ -8,8 +8,11 @@ import java.util.Date;
 public class Employee {
     private String id;
     private String firstName;
+    private String middleName;
     private String lastName;
+    private String secondLastName;
     private String email;
+    private String password;
     private Date birthDate;
     private EmployePosition position;
     private String libraryCode;
@@ -19,17 +22,23 @@ public class Employee {
      *
      * @param id            the employee ID
      * @param firstName     the first name of the employee
+     * @param middleName    the middle name of the employee
      * @param lastName      the last name of the employee
+     * @param secondLastName the second last name of the employee
      * @param email         the email address of the employee
+     * @param password      the password of the employee
      * @param birthDate     the birth date of the employee
      * @param position      the position of the employee
      * @param libraryCode   the library code of the employee
      */
-    public Employee(String id, String firstName, String lastName, String email, Date birthDate, EmployePosition position, String libraryCode) {
+    public Employee(String id, String firstName,String middleName, String lastName, String secondLastName, String email, String password, Date birthDate, EmployePosition position, String libraryCode) {
         this.id = id;
         this.firstName = firstName;
+        this.middleName = middleName;
         this.lastName = lastName;
+        this.secondLastName = secondLastName;
         this.email = email;
+        this.password = password;
         this.birthDate = birthDate;
         this.position = position;
         this.libraryCode = libraryCode;
@@ -72,12 +81,48 @@ public class Employee {
     }
 
     /**
+     * Returns the middle name of the employee.
+     *
+     * @return the middle name
+     */
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    /**
+     * Sets the middle name of the employee.
+     *
+     * @param middleName the middle name to set
+     */
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    /**
      * Returns the last name of the employee.
      *
      * @return the last name
      */
     public String getLastName() {
         return lastName;
+    }
+
+    /**
+     * Returns the second last name of the employee.
+     *
+     * @return the second last name
+     */
+    public String getSecondLastName() {
+        return secondLastName;
+    }
+
+    /**
+     * Sets the second last name of the employee.
+     *
+     * @param secondLastName the second last name to set
+     */
+    public void setSecondLastName(String secondLastName) {
+        this.secondLastName = secondLastName;
     }
 
     /**
@@ -105,6 +150,24 @@ public class Employee {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * Returns the password of the employee.
+     *
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * Sets the password of the employee.
+     *
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**

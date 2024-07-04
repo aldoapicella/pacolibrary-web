@@ -19,7 +19,9 @@ CREATE TABLE library.client (
 CREATE TABLE library.employee (
     id VARCHAR2(10) NOT NULL,
     first_name VARCHAR2(50) NOT NULL,
+    middle_name VARCHAR2(50),
     last_name VARCHAR2(50) NOT NULL,
+    second_last_name VARCHAR2(50),
     password VARCHAR2(255) NOT NULL,
     email VARCHAR2(100) NOT NULL UNIQUE,
     birth_date DATE NOT NULL,

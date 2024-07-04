@@ -33,12 +33,12 @@
                     <label for="id">ID:</label>
                     <input type="text" id="id" name="id" required>
                     <div class="input-group">
-                        <input type="text" id="firstName" name="firstName" placeholder="Nombre" required>
-                        <input type="text" id="middleName" name="middleName" placeholder="Segundo nombre">
+                        <input type="text" id="first_name" name="first_name" placeholder="Nombre" required>
+                        <input type="text" id="middle_name" name="middle_name" placeholder="Segundo nombre">
                     </div>
                     <div class="input-group">
-                        <input type="text" id="lastName" name="lastName" placeholder="Apellido" required>
-                        <input type="text" id="secondSurname" name="secondSurname" placeholder="Segundo apellido">
+                        <input type="text" id="last_name" name="last_name" placeholder="Apellido" required>
+                        <input type="text" id="second_surname" name="second_surname" placeholder="Segundo apellido">
                     </div>
                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
                     <input type="email" id="email" name="email" placeholder="Email" required>

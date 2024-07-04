@@ -22,7 +22,7 @@ public class EmployeeDao implements IEmployeeDao{
     private static final Logger LOGGER = Logger.getLogger(EmployeeDao.class.getName());
 
     private static final String VALIDATE_EMPLOYEE_QUERY = "SELECT COUNT(*) FROM employee WHERE id = ? AND password = ?";
-    private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employee (id, first_name, last_name, email, position) VALUES (?, ?, ?, ?, ?)";
+    private static final String ADD_EMPLOYEE_QUERY = "INSERT INTO employee (id, first_name, middle_name, last_name, second_last_name, email, password, birth_date, position, library_code) VALUES (?, ?, ?, ?, ?)";
     private static final String GET_EMPLOYEE_BY_ID_QUERY = "SELECT id, first_name, last_name, email, birth_date, position, library_code FROM employee WHERE id = ?";
 
     /**
@@ -65,9 +65,14 @@ public class EmployeeDao implements IEmployeeDao{
                 PreparedStatement statement = connection.prepareStatement(ADD_EMPLOYEE_QUERY)) {
             statement.setString(1, employee.getId());
             statement.setString(2, employee.getFirstName());
-            statement.setString(3, employee.getLastName());
-            statement.setString(4, employee.getEmail());
-            statement.setString(5, employee.getPosition().name());
+            statement.setString(3, employee.getMiddleName());
+            statement.setString(4, employee.getLastName());
+            statement.setString(5, employee.getSecondLastName());
+            statement.setString(6, employee.getEmail());
+            statement.setString(7, employee.getPassword());
+            statement.setDate(8, new java.sql.Date(employee.getBirthDate().getTime()));
+            statement.setString(9, employee.getPosition().toString());
+            statement.setString(10, employee.getLibraryCode());
             statement.executeUpdate();
             LOGGER.log(Level.INFO, "Employee added: {0}", employee.getId());
         } catch (SQLException e) {
@@ -91,12 +96,15 @@ public class EmployeeDao implements IEmployeeDao{
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     String firstName = resultSet.getString("first_name");
+                    String middleName = resultSet.getString("middle_name");
                     String lastName = resultSet.getString("last_name");
+                    String secondLastName = resultSet.getString("second_last_name");
                     String email = resultSet.getString("email");
+                    String password = resultSet.getString("password");
                     Date birthDate = resultSet.getDate("birth_date");
                     EmployePosition position = EmployePosition.valueOf(resultSet.getString("position"));
                     String libraryCode = resultSet.getString("library_code");
-                    return new Employee(id, firstName, lastName, email, birthDate, position, libraryCode);
+                    return new Employee(id, firstName, middleName, lastName, secondLastName, email, password, birthDate, position, libraryCode);
                 }
             }
         } catch (SQLException e) {
