@@ -37,6 +37,7 @@ public class BookDao implements IBookDao{
      * @return A list of books that match the given publisher ID and author ID.
      * @throws SQLException If an error occurs while retrieving the books.
      */
+    @Override
     public List<Book> getBooksByPublisherAndAuthor(int publisherId, int authorId) throws SQLException {
         LOGGER.log(Level.INFO, "Getting books by publisher ID: {0} and author ID: {1}", new Object[]{publisherId, authorId});
         List<Book> books = new ArrayList<>();

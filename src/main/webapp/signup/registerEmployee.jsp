@@ -79,7 +79,7 @@
         </div>
     </main>
 
-  
-    <jsp:include page="../WEB-INF/footer.jsp" />
+    <!-- Incluir el footer.jsp -->
+    <jsp:include page="footer.jsp" />
 </body>
 </html>
