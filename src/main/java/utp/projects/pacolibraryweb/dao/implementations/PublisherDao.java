@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import utp.projects.pacolibraryweb.dao.interfaces.IPublisherDao;
 import utp.projects.pacolibraryweb.model.Publisher;
 import utp.projects.pacolibraryweb.util.DatabaseConnection;
 
@@ -14,7 +15,7 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
 /**
  * The PublisherDao class provides methods to interact with the publishers table in the database.
  */
-public class PublisherDao {
+public class PublisherDao implements IPublisherDao {
     private static final Logger LOGGER = Logger.getLogger(PublisherDao.class.getName());
 
     private static final String GET_PUBLISHER_BY_ID_QUERY = "SELECT * FROM publishers WHERE id = ?";
@@ -26,6 +27,7 @@ public class PublisherDao {
      * @return The Publisher object representing the retrieved publisher, or null if not found.
      * @throws SQLException If an error occurs while retrieving the publisher.
      */
+    @Override
     public Publisher getPublisherById(int id) throws SQLException {
         LOGGER.log(Level.INFO, "Getting publisher with ID: {0}", id);
         try (Connection connection = DatabaseConnection.getConnection();
