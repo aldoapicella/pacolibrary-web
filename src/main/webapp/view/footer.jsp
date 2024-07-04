@@ -1,5 +1,5 @@
 <footer>
-    <link rel="stylesheet" href="../styles/styleheader_footer.css">
+    <link rel="stylesheet" href="./styles/styleheader_footer.css">
     <!--MENU-->
     <div class="Menu-footer">
         <ul>
@@ -8,18 +8,22 @@
             <li><a href="sucursal.jsp">Contacto</a></li>
         </ul>  
         <div class="Usuario-footer">
-            <a href="perfiles.jsp"><img src="../images/Usuario.png" alt="Usuario"></a>
-            <%
-                if (userName != null) {
-                    if ("CLIENT".equals(userType)) {
-                        out.println("Cliente: " + userName);
-                    } else if ("EMPLOYEE".equals(userType)) {
-                        out.println("Empleado: " + userName);
-                    }
-                } else {
-                    out.println("<a href='login.jsp'>Únete</a>");
-                }
-            %>
+            <a href="perfiles.jsp"><img src="./images/Usuario.png" alt="Usuario"></a>
+            <c:choose>
+                <c:when test="${not empty userName}">
+                    <c:choose>
+                        <c:when test="${userType == 'CLIENT'}">
+                            Cliente: ${userName}
+                        </c:when>
+                        <c:when test="${userType == 'EMPLOYEE'}">
+                            Empleado: ${userName}
+                        </c:when>
+                    </c:choose>
+                </c:when>
+                <c:otherwise>
+                    <a href='login.jsp'>Únete</a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div> 
     <!--COPYRIGHT-->
