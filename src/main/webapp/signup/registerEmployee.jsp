@@ -53,6 +53,6 @@
             </div>
         </div>
     </main>
-    
+    <%@ include file="../view/footer.jsp" %>
 </body>
 </html>

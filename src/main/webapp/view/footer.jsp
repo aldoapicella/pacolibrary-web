@@ -1,5 +1,5 @@
 <footer>
-    <link rel="stylesheet" href="./styles/styleheader_footer.css">
+    <link rel="stylesheet" href="../styles/styleheader_footer.css">
     <!--MENU-->
     <div class="Menu-footer">
         <ul>
@@ -8,7 +8,7 @@
             <li><a href="sucursal.jsp">Contacto</a></li>
         </ul>  
         <div class="Usuario-footer">
-            <a href="perfiles.jsp"><img src="./images/Usuario.png" alt="Usuario"></a>
+            <a href="perfiles.jsp"><img src="../images/Usuario.png" alt="Usuario"></a>
             <c:choose>
                 <c:when test="${not empty userName}">
                     <c:choose>

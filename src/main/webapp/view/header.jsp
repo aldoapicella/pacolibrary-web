@@ -1,11 +1,11 @@
 <div class="LogoRedes">
     <div class="logo">
-        <img src="./images/LOGO.png" alt="Librería ¡Donde Paco!">
+        <img src="../images/LOGO.png" alt="Librería ¡Donde Paco!">
     </div>
     <div class="Redes">
         <ul>
-            <li><a href="https://www.instagram.com"><img src="./images/Instagram.png" alt="Instagram"></a></li>
-            <li><a href="https://www.facebook.com"><img src="./images/Facebook.png" alt="Facebook"></a></li>
+            <li><a href="https://www.instagram.com"><img src="../images/Instagram.png" alt="Instagram"></a></li>
+            <li><a href="https://www.facebook.com"><img src="../images/Facebook.png" alt="Facebook"></a></li>
             <li><a href="https://www.google.com/webhp?hl=es&sa=X&ved=0ahUKEwjdofSloIGHAxVQmYQIHetICooQPAgI"><img src="../images/Buscar.png" alt="Buscar"></a></li>
         </ul>
     </div>
