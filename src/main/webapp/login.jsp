@@ -1,5 +1,4 @@
-<%@ include file="./view/header.jsp" %>
-
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <main>
     <div class="login-contenedor">
         <div class="login">
@@ -47,7 +46,6 @@
     </div>
 </main>
 
-<%@ include file="./view/footer.jsp" %>
 
 <!-- Incluir el archivo JavaScript externo -->
-<script src="../js/tabs.js"></script>
+<script src="./js/tabs.js"></script>
