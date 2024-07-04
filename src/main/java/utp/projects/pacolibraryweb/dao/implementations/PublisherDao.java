@@ -18,21 +18,21 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
 public class PublisherDao implements IPublisherDao {
     private static final Logger LOGGER = Logger.getLogger(PublisherDao.class.getName());
 
-    private static final String GET_PUBLISHER_BY_ID_QUERY = "SELECT * FROM publishers WHERE id = ?";
+    private static final String GET_PUBLISHER_BY_NAME_QUERY = "SELECT * FROM publishers WHERE name = ?";
 
     /**
-     * Retrieves a publisher from the database based on the specified ID.
+     * Retrieves a publisher from the database based on the specified name.
      *
-     * @param id The ID of the publisher to retrieve.
+     * @param name The name of the publisher to retrieve.
      * @return The Publisher object representing the retrieved publisher, or null if not found.
      * @throws SQLException If an error occurs while retrieving the publisher.
      */
     @Override
-    public Publisher getPublisherById(int id) throws SQLException {
-        LOGGER.log(Level.INFO, "Getting publisher with ID: {0}", id);
+    public Publisher getPublisherByName(String name) throws SQLException {
+        LOGGER.log(Level.INFO, "Getting publisher with name: {0}", name);
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(GET_PUBLISHER_BY_ID_QUERY)) {
-            statement.setInt(1, id);
+             PreparedStatement statement = connection.prepareStatement(GET_PUBLISHER_BY_NAME_QUERY)) {
+            statement.setString(1, name);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     Publisher publisher = new Publisher(resultSet.getInt("id"), resultSet.getString("name"));

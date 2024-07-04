@@ -9,11 +9,11 @@ import utp.projects.pacolibraryweb.model.Publisher;
  */
 public interface IPublisherDao {
     /**
-     * Retrieves a Publisher object by its ID.
+     * Retrieves a Publisher object by its name
      *
-     * @param id the ID of the Publisher to retrieve
+     * @param name the name of the Publisher to retrieve
      * @return the Publisher object with the specified ID
      * @throws SQLException if an error occurs while accessing the database
      */
-    Publisher getPublisherById(int id) throws SQLException;
+    Publisher getPublisherByName(String name) throws SQLException;
 }

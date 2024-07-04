@@ -17,21 +17,21 @@ import utp.projects.pacolibraryweb.util.DatabaseConnection;
 public class AuthorDao implements IAuthorDao {
     private static final Logger LOGGER = Logger.getLogger(AuthorDao.class.getName());
 
-    private static final String GET_AUTHOR_BY_ID_QUERY = "SELECT * FROM authors WHERE id = ?";
+    private static final String GET_AUTHOR_BY_NAME_QUERY = "SELECT * FROM authors WHERE name = ?";
 
     /**
-     * Retrieves an author from the database based on the specified ID.
+     * Retrieves an author from the database based on the specified name.
      *
-     * @param id The ID of the author to retrieve.
+     * @param name The name of the author to retrieve.
      * @return The Author object representing the retrieved author, or null if not found.
      * @throws SQLException If an error occurs while retrieving the author.
      */
     @Override
-    public Author getAuthorById(int id) throws SQLException {
-        LOGGER.log(Level.INFO, "Getting author with ID: {0}", id);
+    public Author getAuthorByName(String name) throws SQLException {
+        LOGGER.log(Level.INFO, "Getting author with name: {0}", name);
         try (Connection connection = DatabaseConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(GET_AUTHOR_BY_ID_QUERY)) {
-            statement.setInt(1, id);
+             PreparedStatement statement = connection.prepareStatement(GET_AUTHOR_BY_NAME_QUERY)) {
+            statement.setString(1, name);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     Author author = new Author(resultSet.getInt("id"), resultSet.getString("name"));
